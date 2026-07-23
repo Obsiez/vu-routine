@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --accent: #ff3e00;
+  }
+
+  html.dark {
+    --bg: #0a0a0b;
+    --surface: #141416;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: #0f172a;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  html.dark body {
+    color: #ffffff;
+  }
+
+  .font-syne {
+    font-family: 'Syne', sans-serif;
+  }
+
+  .font-mono, .font-geist-mono {
+    font-family: 'Geist Mono', monospace;
+  }
+}
+
+@layer utilities {
+  /* Dot background pattern */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  html.dark .bg-dot-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  }
+
+  /* Accent Orange Helpers */
+  .bg-accent {
+    background-color: #ff3e00;
+  }
+
+  .text-accent {
+    color: #ff3e00;
+  }
+
+  .border-accent {
+    border-color: #ff3e00;
+  }
+
+  .shadow-accent {
+    box-shadow: 0 0 15px rgba(255, 62, 0, 0.3);
+  }
+
+  /* Minimal Boxy Custom Scrollbars for Website Main Scrollbar & All Inner Containers */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e2e8f0;
+  }
+
+  html.dark ::-webkit-scrollbar-track {
+    background: #0a0a0b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border: 1px solid #94a3b8;
+    border-radius: 0px;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #232326;
+    border: 1px solid #141416;
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff3e00;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Firefox Custom Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #e2e8f0;
+  }
+
+  html.dark * {
+    scrollbar-color: #232326 #0a0a0b;
+  }
+
+  /* Utility for hiding scrollbar specifically when needed */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+}

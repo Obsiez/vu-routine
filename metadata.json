@@ -1,0 +1,6 @@
+{
+  "name": "Class Routine & Task Manager",
+  "description": "Mobile-first class routine, task manager, attendance tracker and class reminders with boxy modern design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

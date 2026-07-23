@@ -39,6 +39,35 @@ export const WeekView: React.FC<WeekViewProps> = ({
       ? sessions
       : sessions.filter((s) => s.courseCode === selectedCourseFilter);
 
+  // Helper to compute calendar dates for each day row when printing
+  const getCalendarDateForDay = (targetDay: string) => {
+    const dayMap: Record<string, number> = {
+      Sunday: 0,
+      Monday: 1,
+      Tuesday: 2,
+      Wednesday: 3,
+      Thursday: 4,
+      Friday: 5,
+      Saturday: 6
+    };
+    
+    const today = new Date();
+    const currentDayIndex = today.getDay(); // 0-6
+    const targetDayIndex = dayMap[targetDay];
+    
+    if (targetDayIndex === undefined) return '';
+    
+    // Calculate difference relative to today
+    const diff = targetDayIndex - currentDayIndex;
+    const targetDate = new Date(today);
+    targetDate.setDate(today.getDate() + diff);
+    
+    return targetDate.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
+    });
+  };
+
   const activeDays: DayOfWeek[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
 
   return (
@@ -53,12 +82,15 @@ export const WeekView: React.FC<WeekViewProps> = ({
             <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-0.5">
               Department of Economics — 1st Semester Section C
             </p>
+            <p className="hidden print:block text-xs font-mono text-slate-600 mt-1">
+              Printed on: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.print()}
-              className="text-xs font-mono font-extrabold bg-slate-900 text-white dark:bg-[#ff3e00] dark:text-black p-2 border border-slate-900 dark:border-[#ff3e00] hover:opacity-90 cursor-pointer flex items-center justify-center shadow-sm"
+              className="text-xs font-mono font-extrabold bg-slate-900 text-white dark:bg-[#ff3e00] dark:text-black p-2 border border-slate-900 dark:border-[#ff3e00] hover:opacity-90 cursor-pointer flex items-center justify-center shadow-sm animate-pulse"
               title="Print or Save Schedule as PDF"
               aria-label="Print schedule"
             >
@@ -141,11 +173,14 @@ export const WeekView: React.FC<WeekViewProps> = ({
                   <td className="p-2.5 font-bold border-r border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-[#0a0a0b]/60 text-slate-900 dark:text-white w-24 shrink-0">
                     <button
                       onClick={() => onSelectDay(day)}
-                      className="hover:underline hover:text-[#ff3e00] cursor-pointer text-left block"
+                      className="hover:underline hover:text-[#ff3e00] cursor-pointer text-left block w-full"
                     >
                       {day}
-                      <span className="block text-[9px] font-normal text-slate-500">
+                      <span className="block text-[9px] font-normal text-slate-500 print:hidden">
                         {daySessions.length} classes
+                      </span>
+                      <span className="hidden print:block text-[9px] font-bold text-slate-600 mt-0.5">
+                        {getCalendarDateForDay(day)}
                       </span>
                     </button>
                   </td>

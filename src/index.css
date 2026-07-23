@@ -172,13 +172,65 @@
     table {
       border-collapse: collapse !important;
       width: 100% !important;
+      table-layout: auto !important; /* Allow columns to scale dynamically to fit text */
       color: #000000 !important;
+      page-break-inside: avoid;
     }
 
     th, td {
       border: 1px solid #000000 !important;
       background: #ffffff !important;
       color: #000000 !important;
+      padding: 6px 4px !important;
+      height: auto !important;
+      width: auto !important;
+      overflow: visible !important;
+      white-space: normal !important;
+    }
+
+    /* Force show text fully (disable truncate) */
+    .truncate, td span, td div {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+      word-break: break-word !important;
+    }
+
+    /* Make text black and clear */
+    td span, td div, th div {
+      color: #000000 !important;
+    }
+
+    /* Simplify the colored boxes inside cells */
+    td > div {
+      border: none !important;
+      background: transparent !important;
+      padding: 0 !important;
+      height: auto !important;
+      width: auto !important;
+      box-shadow: none !important;
+    }
+
+    /* Override dynamic theme/accent coloring for high-contrast print */
+    .text-\[\#ff3e00\] {
+      color: #000000 !important;
+      font-weight: 800 !important;
+    }
+
+    .text-slate-500, .text-slate-600, .text-slate-700, .dark\:text-slate-300, .dark\:text-slate-400 {
+      color: #333333 !important;
+    }
+
+    /* Legend grid simplified */
+    .grid {
+      display: block !important;
+    }
+    
+    .grid > div {
+      margin-bottom: 8px !important;
+      page-break-inside: avoid;
+      background: transparent !important;
+      border: 1px solid #000000 !important;
     }
 
     * {

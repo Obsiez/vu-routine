@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-30 bg-white/90 dark:bg-[#0a0a0b]/95 backdrop-blur-md border-b border-slate-200 dark:border-white/10 transition-colors max-w-full overflow-hidden">
       {/* Top Banner Alert if next class exists */}
       {nextClass && (
-        <div className="bg-[#ff3e00]/10 text-[#ff3e00] font-mono text-xs sm:text-sm py-1.5 px-2.5 sm:px-4 border-b border-[#ff3e00]/20 font-medium flex items-center justify-between gap-2 max-w-full overflow-hidden">
+        <div className="bg-[#ff3e00]/10 text-[#ff3e00] font-mono text-[11px] sm:text-xs py-1.5 px-2.5 sm:px-4 border-b border-[#ff3e00]/20 font-medium flex items-center justify-between gap-2 max-w-full overflow-hidden">
           <div className="flex items-center gap-1.5 min-w-0 overflow-hidden">
             <Clock className="w-4 h-4 text-[#ff3e00] shrink-0" />
             <span className="font-bold tracking-wider uppercase shrink-0">NEXT CLASS:</span>

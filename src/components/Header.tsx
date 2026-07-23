@@ -56,15 +56,15 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-30 bg-white/90 dark:bg-[#0a0a0b]/95 backdrop-blur-md border-b border-slate-200 dark:border-white/10 transition-colors max-w-full overflow-hidden">
       {/* Top Banner Alert if next class exists */}
       {nextClass && (
-        <div className="bg-[#ff3e00]/10 text-[#ff3e00] font-mono text-[11px] py-1 px-2.5 sm:px-4 border-b border-[#ff3e00]/20 font-medium flex items-center justify-between gap-2 max-w-full overflow-hidden">
+        <div className="bg-[#ff3e00]/10 text-[#ff3e00] font-mono text-[12px] sm:text-xs py-1.5 px-2.5 sm:px-4 border-b border-[#ff3e00]/20 font-medium flex items-center justify-between gap-2 max-w-full overflow-hidden">
           <div className="flex items-center gap-1.5 min-w-0 overflow-hidden">
-            <Clock className="w-3.5 h-3.5 text-[#ff3e00] shrink-0" />
-            <span className="font-bold tracking-wider text-[9px] sm:text-[10px] uppercase shrink-0">NEXT CLASS:</span>
-            <span className="text-slate-900 dark:text-white font-bold truncate text-[11px] sm:text-xs" title={`${nextClass.session.courseTitle} - ${nextClass.session.teacher}`}>
+            <Clock className="w-4 h-4 text-[#ff3e00] shrink-0" />
+            <span className="font-bold tracking-wider text-[10px] sm:text-[11px] uppercase shrink-0">NEXT CLASS:</span>
+            <span className="text-slate-900 dark:text-white font-bold truncate text-[12px] sm:text-sm" title={`${nextClass.session.courseTitle} - ${nextClass.session.teacher}`}>
               {nextClass.session.courseCode} <span className="text-[#ff3e00] font-extrabold">({getTeacherShortName(nextClass.session.teacher)})</span>
             </span>
-            <span className="text-slate-500 dark:text-slate-400 text-[10px] hidden md:inline shrink-0">• Rm {nextClass.session.room}</span>
-            <span className="bg-[#ff3e00] text-black px-1.5 py-0.2 text-[9px] sm:text-[10px] font-mono font-bold uppercase shrink-0">
+            <span className="text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs hidden md:inline shrink-0">• Rm {nextClass.session.room}</span>
+            <span className="bg-[#ff3e00] text-black px-1.5 py-0.2 text-[10px] sm:text-[11px] font-mono font-bold uppercase shrink-0">
               {formatMinutesUntil(nextClass.minutesUntil)}
             </span>
           </div>

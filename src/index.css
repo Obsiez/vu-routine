@@ -149,9 +149,15 @@
 
   /* Optimized Print Styles for Schedule PDF Generation */
   @media print {
-    body, html, #root {
-      background: #ffffff !important;
+    body, html, #root, main, div, section, table, tr, td, th, h1, h2, h3, h4, p, span {
+      background-color: transparent !important;
+      background-image: none !important;
       color: #000000 !important;
+      box-shadow: none !important;
+    }
+
+    body, html {
+      background: #ffffff !important;
     }
 
     header, nav, button, .no-print {

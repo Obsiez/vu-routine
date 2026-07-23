@@ -9,7 +9,12 @@
     --accent: #ff3e00;
   }
 
+  html {
+    color-scheme: light;
+  }
+
   html.dark {
+    color-scheme: dark;
     --bg: #0a0a0b;
     --surface: #141416;
   }
@@ -65,34 +70,39 @@
     box-shadow: 0 0 15px rgba(255, 62, 0, 0.3);
   }
 
-  /* Minimal Boxy Custom Scrollbars for Website Main Scrollbar & All Inner Containers */
+  /* Minimal Subtle Gray Custom Scrollbar for Main Website & Inner Containers */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #e2e8f0;
+    background: #f1f5f9;
   }
 
+  .dark ::-webkit-scrollbar-track,
   html.dark ::-webkit-scrollbar-track {
     background: #0a0a0b;
   }
 
   ::-webkit-scrollbar-thumb {
     background: #cbd5e1;
-    border: 1px solid #94a3b8;
-    border-radius: 0px;
+    border-radius: 2px;
   }
 
+  .dark ::-webkit-scrollbar-thumb,
   html.dark ::-webkit-scrollbar-thumb {
-    background: #232326;
-    border: 1px solid #141416;
-    border-radius: 0px;
+    background: #27272a;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff3e00;
+    background: #94a3b8;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover,
+  html.dark ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
   }
 
   ::-webkit-scrollbar-corner {
@@ -100,13 +110,29 @@
   }
 
   /* Firefox Custom Scrollbar */
-  * {
+  html, body, * {
     scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 #e2e8f0;
+    scrollbar-color: #cbd5e1 #f1f5f9;
   }
 
-  html.dark * {
-    scrollbar-color: #232326 #0a0a0b;
+  .dark html, .dark body, .dark *,
+  html.dark *, html.dark body {
+    scrollbar-color: #27272a #0a0a0b;
+  }
+
+  /* Automatically hide scrollbars on mobile / touch devices */
+  @media (max-width: 768px), (pointer: coarse) {
+    html, body, * {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    ::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: transparent !important;
+    }
   }
 
   /* Utility for hiding scrollbar specifically when needed */

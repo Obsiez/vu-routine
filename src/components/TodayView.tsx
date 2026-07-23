@@ -77,7 +77,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
         {(selectedDay !== currentDay || isTodaySimulated) && (
           <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-white/10">
             <div className="text-[10px] sm:text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <span>SIMULATED DAY:</span>
+              <span>VIEWING:</span>
               <span className="text-[#ff3e00] font-extrabold">{selectedDay}</span>
             </div>
             <button
@@ -91,10 +91,14 @@ export const TodayView: React.FC<TodayViewProps> = ({
         )}
 
         <div className="grid grid-cols-7 gap-1.5 sm:gap-2 w-full">
-          {getOrderedDaysFromToday(currentDay).map((day) => {
+          {getOrderedDaysFromToday(currentDay).map((day, idx) => {
             const isSelected = selectedDay === day;
             const isRealToday = currentDay === day;
-            const dayClassCount = sessions.filter((s) => s.day === day).length;
+            
+            // Calculate upcoming date for each card
+            const cardDate = new Date();
+            cardDate.setDate(cardDate.getDate() + idx);
+            const formattedDateStr = cardDate.getDate().toString();
 
             return (
               <button
@@ -113,8 +117,8 @@ export const TodayView: React.FC<TodayViewProps> = ({
                     {day.substring(0, 3)}
                     {isRealToday ? ' *' : ''}
                   </span>
-                  <span className="text-[10px] sm:text-[11px] font-bold mt-1.5 leading-none">
-                    {dayClassCount > 0 ? `${dayClassCount} cl` : 'off'}
+                  <span className="text-[10px] sm:text-[11px] font-bold mt-1.5 leading-none opacity-85">
+                    {formattedDateStr}
                   </span>
                 </div>
               </button>

@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { COURSES } from '../data/defaultRoutine';
 import { SubTask, TaskItem } from '../types';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface TaskManagerProps {
   tasks: TaskItem[];
@@ -41,6 +42,9 @@ export const TaskManager: React.FC<TaskManagerProps> = ({
   const [subjectFilter, setSubjectFilter] = React.useState<string>('ALL');
   const [searchQuery, setSearchQuery] = React.useState<string>('');
   const [expandedSubtasks, setExpandedSubtasks] = React.useState<Record<string, boolean>>({});
+  const [taskToDelete, setTaskToDelete] = React.useState<TaskItem | null>(null);
+
+  useBodyScrollLock(!!taskToDelete);
 
   const todayStr = new Date().toISOString().split('T')[0];
 
@@ -365,7 +369,7 @@ export const TaskManager: React.FC<TaskManagerProps> = ({
                       <Edit2 className="w-3.5 h-3.5" />
                     </button>
                     <button
-                      onClick={() => onDeleteTask(task.id)}
+                      onClick={() => setTaskToDelete(task)}
                       className="p-1.5 text-rose-500 dark:text-rose-400 hover:bg-rose-500/10 border border-slate-200 dark:border-white/10 cursor-pointer"
                       title="Delete task"
                     >
@@ -378,6 +382,83 @@ export const TaskManager: React.FC<TaskManagerProps> = ({
           })
         )}
       </div>
+
+      {/* Task Deletion Confirmation Modal */}
+      {taskToDelete && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-[#141416] border border-slate-200 dark:border-white/10 p-5 max-w-md w-full shadow-2xl space-y-4">
+            {/* Modal Title */}
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-white/10">
+              <div className="flex items-center gap-2 text-rose-500 font-syne font-extrabold text-sm uppercase">
+                <AlertTriangle className="w-5 h-5 text-rose-500 shrink-0" />
+                <span>Confirm Task Deletion</span>
+              </div>
+              <button
+                onClick={() => setTaskToDelete(null)}
+                className="p-1 text-slate-400 hover:text-slate-700 dark:hover:text-white cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Task Details Card */}
+            <div className="bg-slate-50 dark:bg-[#0a0a0b] p-3.5 border border-slate-200 dark:border-white/10 space-y-2.5 font-mono text-xs">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-bold px-2 py-0.5 bg-[#ff3e00]/10 text-[#ff3e00] border border-[#ff3e00]/20 text-[10px]">
+                  {taskToDelete.courseCode}
+                </span>
+                <span className="uppercase text-[10px] text-slate-500 font-bold">
+                  [{taskToDelete.category}]
+                </span>
+                <span className="uppercase text-[9px] px-1.5 py-0.2 font-bold border border-rose-500/40 bg-rose-500/10 text-rose-400">
+                  {taskToDelete.priority} Priority
+                </span>
+              </div>
+
+              <h4 className="font-syne font-bold text-sm text-slate-900 dark:text-white">
+                {taskToDelete.title}
+              </h4>
+
+              {taskToDelete.description && (
+                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
+                  {taskToDelete.description}
+                </p>
+              )}
+
+              <div className="pt-1.5 flex flex-wrap items-center justify-between text-[11px] text-slate-500 border-t border-slate-200 dark:border-white/10">
+                <span>Due: {taskToDelete.dueDate || 'No due date'}</span>
+                {taskToDelete.subtasks.length > 0 && (
+                  <span>Subtasks: {taskToDelete.subtasks.length} step(s)</span>
+                )}
+              </div>
+            </div>
+
+            <p className="text-xs font-mono text-slate-600 dark:text-slate-400">
+              Are you sure you want to permanently remove this task? This action cannot be undone.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex justify-end gap-2.5 pt-2 font-mono text-xs">
+              <button
+                onClick={() => setTaskToDelete(null)}
+                className="px-4 py-2 font-bold bg-slate-100 dark:bg-[#232326] text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 hover:text-slate-900 dark:hover:text-white cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  onDeleteTask(taskToDelete.id);
+                  setTaskToDelete(null);
+                }}
+                className="px-4 py-2 font-bold bg-rose-600 text-white border border-rose-600 hover:bg-rose-700 cursor-pointer flex items-center gap-1.5 shadow-md"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Delete Task
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

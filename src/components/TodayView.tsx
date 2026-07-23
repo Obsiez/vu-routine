@@ -18,6 +18,7 @@ import { COURSES } from '../data/defaultRoutine';
 import { ROOM_GUIDE, getTeacherShortName } from '../data/teachers';
 import { AttendanceLog, AttendanceStatus, ClassSession, DayOfWeek, TimeSlot } from '../types';
 import { DAYS_LIST, getISOFormattedDate, getOrderedDaysFromToday, getSlotStatus } from '../utils/timeUtils';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface TodayViewProps {
   selectedDay: DayOfWeek;
@@ -54,6 +55,8 @@ export const TodayView: React.FC<TodayViewProps> = ({
 }) => {
   const [activeNoteSessionId, setActiveNoteSessionId] = React.useState<string | null>(null);
   const [noteText, setNoteText] = React.useState<string>('');
+
+  useBodyScrollLock(!!activeNoteSessionId);
 
   const todaySessions = sessions.filter((s) => s.day === selectedDay);
   const todayDateStr = getISOFormattedDate();

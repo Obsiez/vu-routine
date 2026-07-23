@@ -2,6 +2,7 @@ import React from 'react';
 import { AlertTriangle, CheckCircle2, Clock, Plus, Trash2, X } from 'lucide-react';
 import { COURSES } from '../data/defaultRoutine';
 import { SubTask, TaskCategory, TaskItem, TaskPriority } from '../types';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface TaskModalProps {
   isOpen: boolean;
@@ -28,6 +29,8 @@ export const TaskModal: React.FC<TaskModalProps> = ({
   const [reminderEnabled, setReminderEnabled] = React.useState<boolean>(true);
   const [subtasks, setSubtasks] = React.useState<SubTask[]>([]);
   const [newSubtaskText, setNewSubtaskText] = React.useState<string>('');
+
+  useBodyScrollLock(isOpen);
 
   React.useEffect(() => {
     if (editingTask) {

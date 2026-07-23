@@ -3,6 +3,7 @@ import { Edit, RefreshCw, Save, Trash2, X } from 'lucide-react';
 import { COURSES } from '../data/defaultRoutine';
 import { ClassSession, DayOfWeek, TimeSlot } from '../types';
 import { DAYS_LIST } from '../utils/timeUtils';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface RoutineEditorModalProps {
   isOpen: boolean;
@@ -23,6 +24,7 @@ export const RoutineEditorModal: React.FC<RoutineEditorModalProps> = ({
   onDeleteSession,
   onResetRoutine
 }) => {
+  useBodyScrollLock(isOpen);
   const [selectedDay, setSelectedDay] = React.useState<DayOfWeek>('Sunday');
   const [selectedSlotId, setSelectedSlotId] = React.useState<number>(1);
   const [courseCode, setCourseCode] = React.useState<string>('ECO 1101');

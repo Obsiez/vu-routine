@@ -3,6 +3,7 @@ import { Building, MapPin, Users, X } from 'lucide-react';
 import { COURSES } from '../data/defaultRoutine';
 import { ROOM_GUIDE } from '../data/teachers';
 import { ClassSession } from '../types';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface RoomModalProps {
   roomNumber: string | null;
@@ -11,6 +12,8 @@ interface RoomModalProps {
 }
 
 export const RoomModal: React.FC<RoomModalProps> = ({ roomNumber, onClose, sessions }) => {
+  useBodyScrollLock(!!roomNumber);
+
   if (!roomNumber) return null;
 
   const roomInfo = ROOM_GUIDE[roomNumber] || {

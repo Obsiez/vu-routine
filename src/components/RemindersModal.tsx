@@ -2,6 +2,7 @@ import React from 'react';
 import { Bell, Volume2, X } from 'lucide-react';
 import { ReminderSetting } from '../types';
 import { playReminderChime } from '../utils/audioUtils';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface RemindersModalProps {
   isOpen: boolean;
@@ -24,6 +25,8 @@ export const RemindersModal: React.FC<RemindersModalProps> = ({
   const [notifPermission, setNotifPermission] = React.useState<string>(
     'Notification' in window ? Notification.permission : 'unsupported'
   );
+
+  useBodyScrollLock(isOpen);
 
   React.useEffect(() => {
     setLeadMinutes(setting.leadMinutes);

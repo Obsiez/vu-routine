@@ -1,8 +1,9 @@
 import React from 'react';
-import { BookOpen, Calendar, Clock, Edit3, Filter, MapPin, Phone, Plus, RefreshCw, User, X } from 'lucide-react';
+import { BookOpen, Calendar, Clock, Edit3, Filter, MapPin, Phone, Plus, Printer, RefreshCw, User, X } from 'lucide-react';
 import { COURSES } from '../data/defaultRoutine';
 import { FACULTY_MEMBERS, getTeacherShortName, ROOM_GUIDE } from '../data/teachers';
 import { ClassSession, DayOfWeek, TimeSlot } from '../types';
+import { useBodyScrollLock } from '../utils/useBodyScrollLock';
 
 interface WeekViewProps {
   sessions: ClassSession[];
@@ -30,6 +31,8 @@ export const WeekView: React.FC<WeekViewProps> = ({
     day: DayOfWeek;
   } | null>(null);
 
+  useBodyScrollLock(!!selectedSessionModal);
+
   // Filter sessions if user picked a specific course
   const filteredSessions =
     selectedCourseFilter === 'ALL'
@@ -53,6 +56,14 @@ export const WeekView: React.FC<WeekViewProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.print()}
+              className="text-xs font-mono font-extrabold bg-slate-900 text-white dark:bg-[#ff3e00] dark:text-black p-2 border border-slate-900 dark:border-[#ff3e00] hover:opacity-90 cursor-pointer flex items-center justify-center shadow-sm"
+              title="Print or Save Schedule as PDF"
+              aria-label="Print schedule"
+            >
+              <Printer className="w-4 h-4" />
+            </button>
             <button
               onClick={onOpenEditor}
               className="text-xs font-mono font-extrabold bg-[#ff3e00] text-black px-3 py-1.5 border border-[#ff3e00] hover:bg-[#ff3e00]/90 cursor-pointer flex items-center gap-1.5"

@@ -11,6 +11,7 @@
 
   html {
     color-scheme: light;
+    overscroll-behavior-y: contain;
   }
 
   html.dark {
@@ -27,6 +28,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    overscroll-behavior-y: contain;
   }
 
   html.dark body {

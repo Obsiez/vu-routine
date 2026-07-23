@@ -92,7 +92,7 @@ export const WeekView: React.FC<WeekViewProps> = ({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => window.print()}
-                className="text-xs font-mono font-extrabold bg-slate-900 text-white dark:bg-[#ff3e00] dark:text-black p-2 border border-slate-900 dark:border-[#ff3e00] hover:opacity-90 cursor-pointer flex items-center justify-center shadow-sm animate-pulse"
+                className="text-xs font-mono font-extrabold bg-slate-900 text-white dark:bg-[#ff3e00] dark:text-black px-3 py-1.5 border border-slate-900 dark:border-[#ff3e00] hover:opacity-90 cursor-pointer flex items-center justify-center shadow-sm"
                 title="Print or Save Schedule as PDF"
                 aria-label="Print schedule"
               >

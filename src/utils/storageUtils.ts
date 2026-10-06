@@ -2,12 +2,12 @@ import { DEFAULT_CLASS_SESSIONS, DEFAULT_TIME_SLOTS } from '../data/defaultRouti
 import { AttendanceLog, ClassSession, ReminderSetting, TaskItem, TimeSlot } from '../types';
 
 const STORAGE_KEYS = {
-  SESSIONS: 'class_routine_sessions_v2',
-  SLOTS: 'class_routine_slots_v1',
-  TASKS: 'class_routine_tasks_v2',
-  ATTENDANCE: 'class_routine_attendance_v1',
-  REMINDERS: 'class_routine_reminders_v1',
-  NOTES: 'class_routine_notes_v1'
+  SESSIONS: 'vu_routine_sessions_summer2026',
+  SLOTS: 'vu_routine_slots_summer2026',
+  TASKS: 'vu_routine_tasks_summer2026',
+  ATTENDANCE: 'vu_routine_attendance_summer2026',
+  REMINDERS: 'vu_routine_reminders_summer2026',
+  NOTES: 'vu_routine_notes_summer2026'
 };
 
 const DEFAULT_REMINDER_SETTINGS: ReminderSetting = {

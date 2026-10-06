@@ -94,6 +94,9 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="text-[8px] sm:text-[9px] font-mono font-bold uppercase bg-slate-100 dark:bg-[#141416] text-slate-700 dark:text-slate-300 px-1.5 py-0.5 border border-slate-300 dark:border-white/10 hidden sm:inline-block">
                 1st Sem C
               </span>
+              <span className="text-[8px] sm:text-[9px] font-mono font-bold uppercase bg-[#ff3e00]/15 text-[#ff3e00] px-1.5 py-0.5 border border-[#ff3e00]/30 hidden xs:inline-block">
+                Summer-2026
+              </span>
             </div>
           </div>
         </div>

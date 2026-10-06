@@ -1,18 +1,18 @@
 import { ClassSession, CourseInfo, TimeSlot } from '../types';
 
 export const DEFAULT_TIME_SLOTS: TimeSlot[] = [
-  { id: 1, label: 'Slot 1', startTime: '09:00 AM', endTime: '10:00 AM', startMinutes: 540, endMinutes: 600 },
-  { id: 2, label: 'Slot 2', startTime: '10:05 AM', endTime: '11:05 AM', startMinutes: 605, endMinutes: 665 },
-  { id: 3, label: 'Slot 3', startTime: '11:10 AM', endTime: '12:10 PM', startMinutes: 670, endMinutes: 730 },
-  { id: 4, label: 'Slot 4', startTime: '12:15 PM', endTime: '01:15 PM', startMinutes: 735, endMinutes: 795 },
-  { id: 5, label: 'Slot 5', startTime: '01:50 PM', endTime: '02:50 PM', startMinutes: 830, endMinutes: 890 },
-  { id: 6, label: 'Slot 6', startTime: '02:55 PM', endTime: '03:55 PM', startMinutes: 895, endMinutes: 955 },
+  { id: 1, label: 'Slot 1', startTime: '09:00 AM', endTime: '10:15 AM', startMinutes: 540, endMinutes: 615 },
+  { id: 2, label: 'Slot 2', startTime: '10:15 AM', endTime: '11:30 AM', startMinutes: 615, endMinutes: 690 },
+  { id: 3, label: 'Slot 3', startTime: '11:30 AM', endTime: '12:45 PM', startMinutes: 690, endMinutes: 765 },
+  { id: 4, label: 'Slot 4', startTime: '01:15 PM', endTime: '02:30 PM', startMinutes: 795, endMinutes: 870 },
+  { id: 5, label: 'Slot 5', startTime: '02:30 PM', endTime: '03:45 PM', startMinutes: 870, endMinutes: 945 },
+  { id: 6, label: 'Slot 6', startTime: '03:45 PM', endTime: '05:00 PM', startMinutes: 945, endMinutes: 1020 },
 ];
 
 export const COURSES: Record<string, CourseInfo> = {
   'ECO 1101': {
     code: 'ECO 1101',
-    title: 'Microeconomics I',
+    title: 'Microeconomics-I',
     teacher: 'Md. Rakibul Islam',
     defaultRoom: '504',
     accentColor: 'bg-emerald-500 text-white border-emerald-700',
@@ -22,7 +22,7 @@ export const COURSES: Record<string, CourseInfo> = {
   },
   'ECO 1102': {
     code: 'ECO 1102',
-    title: 'Macroeconomics I',
+    title: 'Macroeconomics-I',
     teacher: 'Md. Ataul Gani Osmani',
     defaultRoom: '811',
     accentColor: 'bg-indigo-500 text-white border-indigo-700',
@@ -42,7 +42,7 @@ export const COURSES: Record<string, CourseInfo> = {
   },
   'ECO 1104': {
     code: 'ECO 1104',
-    title: 'Economic System: Capitalism',
+    title: 'Economic Systems: Capitalism',
     teacher: 'Md. Asduzzaman Kiron',
     defaultRoom: '909',
     accentColor: 'bg-amber-500 text-white border-amber-800',
@@ -71,7 +71,7 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     teacher: 'Mst. Nur Hasna Banu',
     courseCode: 'ECO 1103',
     courseTitle: 'Agricultural Economics',
-    section: '1st Sem. C Sec',
+    section: '1st-C',
     room: '504'
   },
   {
@@ -80,8 +80,8 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     slotId: 6,
     teacher: 'Md. Rakibul Islam',
     courseCode: 'ECO 1101',
-    courseTitle: 'Microeconomics I',
-    section: '1st Sem. C Sec',
+    courseTitle: 'Microeconomics-I',
+    section: '1st-C',
     room: '504'
   },
 
@@ -92,18 +92,18 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     slotId: 1,
     teacher: 'Md. Asduzzaman Kiron',
     courseCode: 'ECO 1104',
-    courseTitle: 'Economic System: Capitalism',
-    section: '1st Sem. C Sec',
+    courseTitle: 'Economic Systems: Capitalism',
+    section: '1st-C',
     room: '909'
   },
   {
     id: 'mon-slot2',
     day: 'Monday',
     slotId: 2,
-    teacher: 'Mst. Nur Hasna Banu',
-    courseCode: 'ECO 1103',
-    courseTitle: 'Agricultural Economics',
-    section: '1st Sem. C Sec',
+    teacher: 'Md. Rakibul Islam',
+    courseCode: 'ECO 1101',
+    courseTitle: 'Microeconomics-I',
+    section: '1st-C',
     room: '908'
   },
 
@@ -115,17 +115,17 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     teacher: 'Md. Shamsul Alam',
     courseCode: 'ECO 1105',
     courseTitle: 'Bangladesh Economy: Structure',
-    section: '1st Sem. C Sec',
+    section: '1st-C',
     room: '909'
   },
   {
     id: 'tue-slot6',
     day: 'Tuesday',
     slotId: 6,
-    teacher: 'Md. Rakibul Islam',
-    courseCode: 'ECO 1101',
-    courseTitle: 'Microeconomics I',
-    section: '1st Sem. C Sec',
+    teacher: 'Mst. Nur Hasna Banu',
+    courseCode: 'ECO 1103',
+    courseTitle: 'Agricultural Economics',
+    section: '1st-C',
     room: '908'
   },
 
@@ -136,8 +136,8 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     slotId: 5,
     teacher: 'Md. Ataul Gani Osmani',
     courseCode: 'ECO 1102',
-    courseTitle: 'Macroeconomics I',
-    section: '1st Sem. C Sec',
+    courseTitle: 'Macroeconomics-I',
+    section: '1st-C',
     room: '811'
   },
   {
@@ -147,7 +147,7 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     teacher: 'Md. Shamsul Alam',
     courseCode: 'ECO 1105',
     courseTitle: 'Bangladesh Economy: Structure',
-    section: '1st Sem. C Sec',
+    section: '1st-C',
     room: '909'
   },
 
@@ -158,8 +158,8 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     slotId: 2,
     teacher: 'Md. Asduzzaman Kiron',
     courseCode: 'ECO 1104',
-    courseTitle: 'Economic System: Capitalism',
-    section: '1st Sem. C Sec',
+    courseTitle: 'Economic Systems: Capitalism',
+    section: '1st-C',
     room: '908'
   },
   {
@@ -168,8 +168,8 @@ export const DEFAULT_CLASS_SESSIONS: ClassSession[] = [
     slotId: 4,
     teacher: 'Md. Ataul Gani Osmani',
     courseCode: 'ECO 1102',
-    courseTitle: 'Macroeconomics I',
-    section: '1st Sem. C Sec',
+    courseTitle: 'Macroeconomics-I',
+    section: '1st-C',
     room: '810'
   }
 ];

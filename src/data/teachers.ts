@@ -80,6 +80,16 @@ export const FACULTY_MEMBERS: FacultyMember[] = [
     primaryRoom: 'Room 504 / 908',
     email: 'nur.hasna@dept.edu',
     phone: '01785281505'
+  },
+  {
+    codeName: 'MAK',
+    name: 'Md. Asduzzaman Kiron',
+    designation: 'Lecturer',
+    department: 'Department of Economics',
+    courses: ['ECO 1104'],
+    primaryRoom: 'Room 908 / 909',
+    email: 'asduzzaman.kiron@dept.edu',
+    phone: '01712345678'
   }
 ];
 
@@ -150,7 +160,7 @@ export const ROOM_GUIDE: Record<string, RoomGuide> = {
     building: 'Academic Building 1',
     wing: 'West Wing',
     capacity: '60 seats',
-    notes: 'Used for Sunday ECO 1103 & ECO 1101 classes.'
+    notes: 'Used for Sunday ECO 1103 (Slot 5) & ECO 1101 (Slot 6) classes.'
   },
   '810': {
     roomNumber: '810',
@@ -158,7 +168,7 @@ export const ROOM_GUIDE: Record<string, RoomGuide> = {
     building: 'Academic Building 1',
     wing: 'East Wing',
     capacity: '50 seats',
-    notes: 'Used for Thursday ECO 1102 Macroeconomics I class.'
+    notes: 'Used for Thursday ECO 1102 Macroeconomics-I (Slot 4) class.'
   },
   '811': {
     roomNumber: '811',
@@ -166,7 +176,7 @@ export const ROOM_GUIDE: Record<string, RoomGuide> = {
     building: 'Academic Building 1',
     wing: 'East Wing',
     capacity: '55 seats',
-    notes: 'Used for Wednesday ECO 1102 Macroeconomics I class.'
+    notes: 'Used for Wednesday ECO 1102 Macroeconomics-I (Slot 5) class.'
   },
   '908': {
     roomNumber: '908',
@@ -174,7 +184,7 @@ export const ROOM_GUIDE: Record<string, RoomGuide> = {
     building: 'Academic Building 1',
     wing: 'Central Wing',
     capacity: '65 seats',
-    notes: 'Used for Monday ECO 1103, Tuesday ECO 1101, Thursday ECO 1104.'
+    notes: 'Used for Monday ECO 1101 (Slot 2), Tuesday ECO 1103 (Slot 6), Thursday ECO 1104 (Slot 2).'
   },
   '909': {
     roomNumber: '909',
@@ -182,6 +192,6 @@ export const ROOM_GUIDE: Record<string, RoomGuide> = {
     building: 'Academic Building 1',
     wing: 'Central Wing',
     capacity: '65 seats',
-    notes: 'Used for Monday ECO 1104, Tuesday & Wednesday ECO 1105.'
+    notes: 'Used for Monday ECO 1104 (Slot 1), Tuesday ECO 1105 (Slot 5), Wednesday ECO 1105 (Slot 6).'
   }
 };

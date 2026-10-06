@@ -82,7 +82,7 @@ export const WeekView: React.FC<WeekViewProps> = ({
                 Full Week Routine Schedule
               </h2>
               <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-0.5">
-                Department of Economics — 1st Semester Section C
+                Department of Economics — 1st Semester Section C (Summer-2026)
               </p>
               <p className="hidden print:block text-xs font-mono text-slate-600 mt-1">
                 Printed on: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -400,7 +400,7 @@ export const WeekView: React.FC<WeekViewProps> = ({
         <div className="border-b-2 border-black pb-4 flex justify-between items-end">
           <div>
             <h1 className="text-xl font-bold uppercase tracking-tight">Class Routine Schedule</h1>
-            <p className="text-sm font-semibold uppercase text-slate-700">Department of Economics — 1st Semester Section C</p>
+            <p className="text-sm font-semibold uppercase text-slate-700">Department of Economics — 1st Semester Section C (Summer-2026)</p>
           </div>
           <div className="text-right text-xs text-slate-500 font-bold">
             Printed: {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}

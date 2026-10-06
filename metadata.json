@@ -1,6 +1,6 @@
 {
   "name": "Class Routine & Task Manager",
-  "description": "Mobile-first class routine, task manager, attendance tracker and class reminders with boxy modern design.",
+  "description": "Mobile-first class routine, task manager, attendance tracker and class reminders with boxy modern design for Varendra University (Summer-2026).",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

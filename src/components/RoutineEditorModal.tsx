@@ -30,7 +30,7 @@ export const RoutineEditorModal: React.FC<RoutineEditorModalProps> = ({
   const [courseCode, setCourseCode] = React.useState<string>('ECO 1101');
   const [teacher, setTeacher] = React.useState<string>('Md. Rakibul Islam');
   const [room, setRoom] = React.useState<string>('504');
-  const [section, setSection] = React.useState<string>('1st Sem. C Sec');
+  const [section, setSection] = React.useState<string>('1st-C');
 
   if (!isOpen) return null;
 
@@ -50,7 +50,7 @@ export const RoutineEditorModal: React.FC<RoutineEditorModalProps> = ({
       setCourseCode('ECO 1101');
       setTeacher(COURSES['ECO 1101'].teacher);
       setRoom(COURSES['ECO 1101'].defaultRoom);
-      setSection('1st Sem. C Sec');
+      setSection('1st-C');
     }
   };
 
